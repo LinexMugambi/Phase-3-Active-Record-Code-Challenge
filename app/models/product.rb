@@ -10,5 +10,10 @@ class Product < ActiveRecord::Base
          puts "Review for #{rev.product.name} by #{rev.user.name}: #{rev.star_rating}. #{rev.comment}"
         end
        end
+       def average_rating
+        all_ratings = []
+        Review.all.map do |rev|
+         all_ratings << rev.star_rating
+        end
 
 end
