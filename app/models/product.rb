@@ -5,5 +5,10 @@ class Product < ActiveRecord::Base
     def leave_review(user, star_rating, comment)
         Review.create(user: user, star_rating: star_rating, comment: comment, product: self)
        end
+       def print_all_reviews
+        Review.all.map do |rev|
+         puts "Review for #{rev.product.name} by #{rev.user.name}: #{rev.star_rating}. #{rev.comment}"
+        end
+       end
 
 end
