@@ -15,5 +15,8 @@ class Product < ActiveRecord::Base
         Review.all.map do |rev|
          all_ratings << rev.star_rating
         end
+        all_ratings.sum.to_f/all_ratings.count
+   
+       end
 
 end
